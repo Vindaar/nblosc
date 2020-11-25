@@ -1,11 +1,11 @@
 # Package
 
-version       = "1.14.3"
-author        = "Skrylar"
+version       = "1.15.0"
+author        = "Skrylar,Vindaar"
 description   = "BLOSC meta-compression for Nim."
 license       = "MIT"
 srcDir        = "src"
 
 # Dependencies
 
-requires "nim >= 0.18.0"
+requires "nim >= 1.0.0"

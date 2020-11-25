@@ -59,10 +59,10 @@ const
 
 proc blosc_init* () {.importc: "blosc_init", blosc.}
 proc blosc_destroy* () {.importc: "blosc_destroy", blosc.}
-proc blosc_compress* (clevel, doshuffle: cint; typesize, nbytes: csize; src, dest: pointer; destsize: csize): cint {.importc: "blosc_compress", blosc.}
-proc blosc_compress_ctx* (clevel, doshuffle: cint; typesize, nbytes: csize; src, dest: pointer; destsize: csize; compressor, blocksize: csize; numinternalthreads: cint): cint {.importc: "blosc_compress_ctx", blosc.}
-proc blosc_decompress* (src: pointer; dest: pointer; destsize: csize): cint {.importc: "blosc_decompress", blosc.}
-proc blosc_decompress_ctx* (src, dest: pointer; destsize: csize; numinternalthreads: cint): cint {.importc: "blosc_decompress_ctx", blosc.}
+proc blosc_compress* (clevel, doshuffle: cint; typesize, nbytes: csize_t; src, dest: pointer; destsize: csize_t): cint {.importc: "blosc_compress", blosc.}
+proc blosc_compress_ctx* (clevel, doshuffle: cint; typesize, nbytes: csize_t; src, dest: pointer; destsize: csize_t; compressor, blocksize: csize_t; numinternalthreads: cint): cint {.importc: "blosc_compress_ctx", blosc.}
+proc blosc_decompress* (src: pointer; dest: pointer; destsize: csize_t): cint {.importc: "blosc_decompress", blosc.}
+proc blosc_decompress_ctx* (src, dest: pointer; destsize: csize_t; numinternalthreads: cint): cint {.importc: "blosc_decompress_ctx", blosc.}
 proc blosc_getitem* (src: pointer; start, nitems: cint; dest: pointer): cint {.importc: "blosc_getitem", blosc.}
 proc blosc_get_nthreads* (): cint {.importc: "blosc_get_nthreads", blosc.}
 proc blosc_set_nthreads* (nthreads: cint): cint {.importc: "blosc_set_nthreads", blosc.}
@@ -74,12 +74,12 @@ proc blosc_list_compressors* (): cstring {.importc: "blosc_list_compressors", bl
 proc blosc_get_version_string* (): cstring {.importc: "blosc_get_version_string", blosc.}
 proc blosc_get_complib_info* (compname: cstring; complib, version: ptr cstring): cint {.importc: "blosc_get_complib_info", blosc.}
 proc blosc_free_resources* (): cint {.importc: "blosc_free_resources", blosc.}
-proc blosc_cbuffer_sizes* (cbuffer: pointer; nbytes, cbytes, blocksize: ptr csize) {.importc: "blosc_cbuffer_sizes", blosc.}
-proc blosc_cbuffer_metainfo* (cbuffer: pointer; typesize: ptr csize; flags: ptr cint) {.importc: "blosc_cbuffer_metainfo", blosc.}
+proc blosc_cbuffer_sizes* (cbuffer: pointer; nbytes, cbytes, blocksize: ptr csize_t) {.importc: "blosc_cbuffer_sizes", blosc.}
+proc blosc_cbuffer_metainfo* (cbuffer: pointer; typesize: ptr csize_t; flags: ptr cint) {.importc: "blosc_cbuffer_metainfo", blosc.}
 proc blosc_cbuffer_versions* (cbuffer: pointer; version, compversion: ptr cint) {.importc: "blosc_cbuffer_versions", blosc.}
 proc blosc_cbuffer_complib* (cbuffer: pointer): cstring {.importc: "blosc_cbuffer_complib", blosc.}
 proc blosc_get_blocksize* (): cint {.importc: "blosc_get_blocksize", blosc.}
-proc blosc_set_blocksize* (blocksize: csize) {.importc: "blosc_set_blocksize", blosc.}
+proc blosc_set_blocksize* (blocksize: csize_t) {.importc: "blosc_set_blocksize", blosc.}
 proc blosc_set_splitmode* (splitmode: int) {.importc: "blosc_set_splitmode", blosc.}
 proc blosclz_compress* (opt_level: cint; input: pointer; length: cint; output: pointer; maxout: cint): cint {.importc: "blosclz_compress", blosc.}
 proc blosclz_decompress* (input: pointer; length: cint; output: pointer; maxout: cint): cint {.importc: "blosclz_decompress", blosc.}
